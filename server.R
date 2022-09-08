@@ -15,11 +15,11 @@ new_blobset <- function(blob_param_df =
     bind_rows(.)
 }
 
-blobset_df <- reactiveVal(new_blobset())
-  
 function(input, output, session) {
   
-  observeEvent(input$new_blobset_btn, {
+  blobset_df <- reactiveVal(new_blobset(), label = 'blobset_df')
+
+  observeEvent(input$new_blobset_btn, label = 'observe: new_blobset_btn', {
     blobset_df(
       new_blobset(
         tibble(x_mu = c(-5, 1, 10), x_sigma = c(2, 8, 4), 
