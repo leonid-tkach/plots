@@ -1,5 +1,11 @@
 library(shiny)
+library(tidyverse)
 
 fluidPage(
-  "plots"
+  fluidRow(
+    actionButton("new_blobset_btn", "New Blobset")
+  ),
+  fluidRow(
+    plotOutput("plot1", click = "plot1_click"),
+  )
 )
