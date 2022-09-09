@@ -7,6 +7,11 @@ fluidPage(
   ),
   fluidRow(
     plotOutput("plot1", click = "plot1_click"),
+  ),
+  fluidRow(
+    plotOutput("plot2", click = "plot2_click"),
+  ),
+  fluidRow(
     tableOutput("near_points")
   )
 )
