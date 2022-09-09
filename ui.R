@@ -7,5 +7,6 @@ fluidPage(
   ),
   fluidRow(
     plotOutput("plot1", click = "plot1_click"),
+    tableOutput("near_points")
   )
 )

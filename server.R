@@ -31,4 +31,9 @@ function(input, output, session) {
     ggplot(data = blobset_df(), mapping = aes(x = x, y = y, color = factor(plot_id))) +
       geom_point()
   })
+  
+  output$near_points <- renderTable({
+    nearPoints(new_blobset(), input$plot1_click, threshold = 100)
+  })
+  
 }
