@@ -1,9 +1,9 @@
 new_blob <- function(x_mu = 0, x_sigma = 1, 
                      y_mu = 0, y_sigma = 1,  
                      plot_id = 0, elem_num = 10) {
-  x <- round(rnorm(elem_num, x_mu, x_sigma), 0)
-  y <- round(rnorm(elem_num, y_mu, y_sigma), 0)
-  tibble(x = x, y = y, plot_id = plot_id)
+  x <- rnorm(elem_num, x_mu, x_sigma)
+  y <- rnorm(elem_num, y_mu, y_sigma)
+  tibble(x = x, y = y, plot_id = as.integer(plot_id))
 }
 
 new_blobset <- function(blob_param_df = 
@@ -29,11 +29,12 @@ function(input, output, session) {
   
   output$plot1 <- renderPlot({
     ggplot(data = blobset_df(), mapping = aes(x = x, y = y, color = factor(plot_id))) +
-      geom_point()
+      geom_point()# +
+      # scale_x_discrete(drop=FALSE)
   })
   
   output$near_points <- renderTable({
-    nearPoints(new_blobset(), input$plot1_click, threshold = 100)
+    nearPoints(blobset_df(), input$plot1_click, threshold = 10)
   })
   
 }
