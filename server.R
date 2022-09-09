@@ -57,8 +57,17 @@ function(input, output, session) {
         })())
   })
   
-  output$near_points <- renderTable({
-    nearPoints(blobset_df(), input$plot1_click, threshold = 10, maxpoints = 1, addDist = TRUE)
-  })
+  # output$near_points <- renderTable({
+  #   nearPoints(blobset_df(), input$plot1_click, threshold = 10, maxpoints = 1, addDist = TRUE)
+  # })
   
+  observeEvent(input$plot2_click, {
+    clicked_plot_id <- nearPoints(blobset_df(), 
+                                  input$plot2_click, 
+                                  threshold = 10, 
+                                  maxpoints = 1)$plot_id
+    plot_colors_nr <- rep('black', length(blobset_df()$plot_id %>% unique()))
+    plot_colors_nr[clicked_plot_id+1] <- 'magenta'
+    plot_colors(plot_colors_nr)
+  })
 }
