@@ -5,10 +5,10 @@ account: leonid-tkach
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6977468
-bundleId: 6291117
+bundleId: 6291579
 url: https://leonid-tkach.shinyapps.io/plots/
-when: 1662923842.98718
-lastSyncTime: 1662923842.9872
+when: 1662937363.24761
+lastSyncTime: 1662937363.24762
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: new_dataset.R|README.md
+ignoredFiles: new_dataset.R|pres/demo.png|pres/pf_github.png|README.md

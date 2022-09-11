@@ -36,7 +36,7 @@ function(input, output, session) {
   })
   
   is_null_plot_colors <- function() {
-    if(is_null(plot_colors())) plot_colors(c('black', 'black', 'black'))
+    if(is_null(plot_colors())) isolate(plot_colors(c('black', 'black', 'black')))
     plot_colors()
   }
   
