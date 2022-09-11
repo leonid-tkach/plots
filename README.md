@@ -1,5 +1,7 @@
 # plots
 
+I did it first in procedural paradigm, than in OO paradigm.
+
 ## Topic
 
 ### Selected topic
