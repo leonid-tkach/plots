@@ -1,4 +1,4 @@
-# order-book-plots
+# plots
 
 Here is the RShiny app produced by this code: https://leonid-tkach.shinyapps.io/plots/
 
