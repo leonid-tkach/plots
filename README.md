@@ -18,7 +18,7 @@ I understand that it's very inconvenient for the graders. Nearly everything is g
 
 I am sorry again.
 
-### Reason why I selected their topic
+### Reason why I selected this topic
 
 This project was my Master’s thesis in 2013. Due to some circumstances, I couldn't proceed. Now I am going to have another try.
 
