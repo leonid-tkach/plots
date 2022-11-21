@@ -1,5 +1,6 @@
 library(shiny)
 library(tidyverse)
+library(dygraphs)
 
 fluidPage(
   fluidRow(
@@ -10,6 +11,9 @@ fluidPage(
   ),
   fluidRow(
     plotOutput("plot2", click = "plot2_click"),
+  ),
+  fluidRow(
+    dygraphOutput("plot3"),
   ),
   fluidRow(
     tableOutput("near_points")

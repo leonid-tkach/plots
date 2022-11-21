@@ -4,6 +4,18 @@ ndistrs_df <- tibble(x_mu = c(-5, 1, 10), x_sigma = c(2, 7, 4),
                      y_mu = c(7, 4, -3), y_sigma = c(5, 3, 8),  
                      plot_id = c(0, 1, 2), elem_num = c(100, 100, 100))
 
+test_ribbon_df <- reactive({
+  tibble(no = c(1, 2, 3, 4, 5, 6, 7),
+         sobp = c(0, 0, 2, 3, 3, 0, 0),
+         bobp = c(0, 0, -2, -3, -2, 0, 0),
+         max_sobp_bobp = c(0, 0, 2, 3, 3, 0, 0),
+         minus_max_sobp_bobp = c(0, 0, -2, -3, -3, 0, 0),
+         std = c(0, 3, 4, 4, 4, 3, 0),
+         btd = c(0, -3, -3, -4, -4, -3, 0),
+         max_std_btd = c(0, 3, 4, 4, 4, 3, 0),
+         minus_max_std_btd = c(0, -3, -4, -4, -4, -3, 0))
+})
+
 new_blob <- function(x_mu = 0, x_sigma = 1, 
                      y_mu = 0, y_sigma = 1,  
                      plot_id = 0, elem_num = 10) {
@@ -64,6 +76,14 @@ function(input, output, session) {
       ylim(-25, 25) +
       labs(title = "Mean (mu) for the above blobs. Click!") +
       theme(plot.title = element_text(size = rel(2)))
+  })
+  
+  output$plot3 <- renderDygraph({
+    dygraph(test_ribbon_df()) %>%
+      dyOptions(fillGraph=TRUE, 
+                colors = c("red", "green", "grey", "grey", "coral", "aquamarine", "grey", "grey"),
+                fillAlpha = 0.75) %>% 
+      dyLegend(show = c("never"))
   })
   
   observeEvent(input$plot2_click, {
